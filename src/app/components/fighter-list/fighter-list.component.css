@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+    color: #CB2A08;
+}
+
+.fighterBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding:30px 0 30px 0; 
+}
+.fighterBox div {
+    margin: 0 10px 0 10px;
+    font-size: 25px;
+}
+
+img {
+    width: 10%;
+    height: 10%;
+}

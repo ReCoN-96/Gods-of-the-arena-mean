@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-md-4 register-fighter">
+
+    <h1>Sélectionner 2 catégories minimum</h1>
+
+    <!-- form card register -->
+    <div class="card-body">
+      <form [formGroup]="fighterForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <select class="custom-select form-control" (change)="updateSwordsmanProfile($event.target.value)"
+            formControlName="swordsman">
+            <option value="">Sélectionner...</option>
+            <option *ngFor="let swordsmanProfile of SwordsmanProfile" value="{{swordsmanProfile}}">{{swordsmanProfile}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select class="custom-select form-control" (change)="updateSpearmanProfile($event.target.value)"
+            formControlName="spearman">
+            <option value="">Sélectionner...</option>
+            <option *ngFor="let spearmanProfile of SpearmanProfile" value="{{spearmanProfile}}">{{spearmanProfile}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select class="custom-select form-control" (change)="updateRiderProfile($event.target.value)"
+            formControlName="rider">
+            <option value="">Sélectionner...</option>
+            <option *ngFor="let riderProfile of RiderProfile" value="{{riderProfile}}">{{riderProfile}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select class="custom-select form-control" (change)="updateArcherProfile($event.target.value)"
+            formControlName="archer">
+            <option value="">Sélectionner...</option>
+            <option *ngFor="let archerProfile of ArcherProfile" value="{{archerProfile}}">{{archerProfile}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit">Vous êtes envoyé au combat mes chers gladiateurs</button>
+        </div>
+      </form>
+
+    </div>
+  </div><!-- form card register -->
+</div>

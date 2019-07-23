@@ -1,0 +1,68 @@
+ <div class="row justify-content-center">
+   <div class="col-md-4 register-fighter">
+     <!-- form card register -->
+     <div class="card card-outline-secondary">
+       <div class="card-header">
+         <h3 class="mb-0">Choisissez les combatants</h3>
+       </div>
+       <div class="card-body">
+         <form [formGroup]="editForm" (ngSubmit)="onSubmit()" >
+
+          <div class="form-group" *ngIf="categoryList?.swordsman.length">
+            <label for="inputPassword3">Epéiste</label>
+            <select class="custom-select form-control" [required]="categoryList?.swordsman.length" (change)="updateSwordsmanProfile($event.target.value)"
+              formControlName="swordsman">
+              <option value="">Sélectionner...</option>
+              <option *ngFor="let swordsmanProfile of SwordsmanProfile" value="{{swordsmanProfile}}">{{swordsmanProfile}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group" *ngIf="categoryList?.spearman.length">
+            <label for="inputPassword3">Lancier</label>
+            <select class="custom-select form-control" [required]="categoryList?.spearman.length" (change)="updateSpearmanProfile($event.target.value)"
+              formControlName="spearman">
+              <option value="">Sélectionner...</option>
+              <option *ngFor="let spearmanProfile of SpearmanProfile" value="{{spearmanProfile}}">{{spearmanProfile}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group" *ngIf="categoryList?.rider.length">
+            <label for="inputPassword3">Cavalier</label>
+            <select class="custom-select form-control" [required]="categoryList?.rider.length" (change)="updateRiderProfile($event.target.value)"
+              formControlName="rider">
+              <option value="">Sélectionner...</option>
+              <option *ngFor="let riderProfile of RiderProfile" value="{{riderProfile}}">{{riderProfile}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group" *ngIf="categoryList?.archer.length">
+            <label for="inputPassword3">Archer</label>
+            <select class="custom-select form-control" [required]="categoryList?.archer.length" (change)="updateArcherProfile($event.target.value)"
+              formControlName="archer">
+              <option value="">Sélectionner...</option>
+              <option *ngFor="let archerProfile of ArcherProfile" value="{{archerProfile}}">{{archerProfile}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="inputPassword3">Animal</label>
+            <select class="custom-select form-control" (change)="updateAnimalProfile($event.target.value)"
+              formControlName="animal">
+              <option value="">Sélectionner... - Optionnel</option>
+              <option *ngFor="let animalProfile of AnimalProfile" value="{{animalProfile}}">{{animalProfile}}
+              </option>
+            </select>
+          </div>
+
+           <div class="form-group">
+             <button class="btn btn-success btn-lg btn-block" type="submit">Ave, Empereur, morituri te salutant</button>
+           </div>
+         </form>
+       </div>
+     </div>
+   </div>
+ </div>

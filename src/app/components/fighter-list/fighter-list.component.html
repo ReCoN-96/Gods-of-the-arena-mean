@@ -1,0 +1,29 @@
+<div class="container">
+  <!-- No data message -->
+  <p *ngIf="fighters.length <= 0" class="no-data text-center">Il n'y a pas encore de combattants!</p>
+
+  <!-- fighter list -->
+  <div class="box" *ngIf="fighters?.length > 0">
+
+      <div *ngFor="let fighter of fighters; let i = index">
+        <h1>combat numero {{i + 1}}</h1>
+        <div class="fighterBox">
+        <div *ngIf="fighter?.swordsman != null">{{fighter.swordsman}}</div>
+        <div *ngIf="fighter?.spearman != null">{{fighter.spearman}}</div>
+        <div *ngIf="fighter?.rider != null">{{fighter.rider}}</div>
+        <div *ngIf="fighter?.archer != null">{{fighter.archer}}</div>
+        <div *ngIf="fighter?.animal != null">{{fighter.animal}}</div>
+      </div>
+        <div class="text-center edit-block">
+          <span class="edit" [routerLink]="['/edit-fighter/', fighter._id]">
+            <button type="button" [hidden]="fighter.avaibleEdit" class="btn btn-success btn-sm">Choisissez les combatants</button>
+          </span>
+          <span class="delete" (click)="removeFighter(fighter, i)">
+            <button type="button" class="btn btn-danger btn-sm">Annuler le combat</button>
+          </span>
+        </div>
+        <hr>
+      </div>
+
+    </div>
+</div>
